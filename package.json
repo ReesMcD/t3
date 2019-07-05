@@ -1,0 +1,26 @@
+{
+  "name": "t3",
+  "version": "1.0.0",
+  "description": "A modern puzzle cube timer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "puzzle",
+    "cube",
+    "timer",
+    "rubiks"
+  ],
+  "author": "Rees McDevitt",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.6"
+  },
+  "dependencies": {
+    "electron-pug": "^2.0.0",
+    "scrambo": "^0.3.0",
+    "timer-machine": "^1.1.0"
+  }
+}
