@@ -1,18 +1,25 @@
-const Timer = require('./src/timer');
-const timer = new Timer();
+const EventHandler = require('./eventHandler');
+const eventHandler = new EventHandler();
 
 document.body.onkeyup = e => {
-  if (timer.isStopped() && e.keyCode == 32) {
-    timer.timerStart();
-  } else if (timer.isStarted()) {
-    timer.timerStop();
+  e.preventDefault();
+  if (eventHandler.isTimerStopped() && e.keyCode == 32) {
+    eventHandler.onTimerStart();
+  } else if (eventHandler.isTimerStarted()) {
+    eventHandler.onTimerStop();
   }
 };
 
 document.body.onkeydown = e => {
-  if (timer.isStopped() && e.keyCode == 32) timer.ready();
+  e.preventDefault();
+  if (eventHandler.isTimerStopped() && e.keyCode == 32)
+    eventHandler.onTimerReady();
 };
 
-// TODO: Change scramble on select change
+document.getElementById('puzzle').onchange = () => {
+  eventHandler.onPuzzleChange();
+};
 
-// TODO: Solves, Avg, Reset, get Scrambles
+document.getElementById('deleteAllSolves').onclick = () => {
+  eventHandler.onDeleteAll();
+};

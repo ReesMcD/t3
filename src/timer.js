@@ -1,33 +1,28 @@
 const TimerMachine = require('timer-machine');
-const Scrambler = require('./scramble');
 
 class Timer {
   constructor() {
-    this.timer = new TimerMachine();
-    this.scrambler = new Scrambler();
     this.timerEl = document.getElementById('timer');
-    this.puzzleEl = document.getElementById('puzzle');
-    this.scrambler.setScramble(this.puzzleEl.value);
+    this.timer = new TimerMachine();
+    this.time = null;
 
     this.timer.on('time', () => {
       if (this.isStarted() === true) {
-        this.timerEl.innerHTML = this.msToTime(this.timer.timeFromStart());
+        this.timerEl.innerHTML = this.msToSecs(this.timer.timeFromStart());
       }
     });
   }
 
-  timerStart() {
+  start() {
     this.timer.timeFromStart();
-    setInterval(this.timer.emitTime.bind(this.timer), 10);
+    setInterval(this.timer.emitTime.bind(this.timer), 25);
     this.timer.start();
   }
 
-  timerStop() {
-    let time = this.timer.timeFromStart();
+  stop() {
+    this.time = this.timer.timeFromStart();
     this.timer.stop();
-    this.timerEl.innerHTML = this.msToTime(time);
-    console.log(this.msToTime(time));
-    this.scrambler.setScramble(this.puzzleEl.value);
+    this.timerEl.innerHTML = this.msToTime(this.time);
   }
 
   ready() {
@@ -42,6 +37,14 @@ class Timer {
     return this.timer.isStarted();
   }
 
+  getTime() {
+    return this.time;
+  }
+
+  getFormatedTime() {
+    return this.msToTime(this.time);
+  }
+
   /**
    *
    * @param {*} s
@@ -53,7 +56,17 @@ class Timer {
     s = (s - secs) / 60;
     let mins = s % 60;
 
-    return this.pad(mins) + ':' + this.pad(secs) + '.' + this.pad(ms, 3);
+    const withMin = this.pad(mins) + ':' + this.pad(secs) + '.' + this.pad(ms);
+    const withOutMin = this.pad(secs) + '.' + this.pad(ms);
+
+    return mins === 0 ? withOutMin : withMin;
+  }
+
+  msToSecs(s) {
+    let ms = s % 1000;
+    s = (s - ms) / 1000;
+    let secs = s % 60;
+    return secs;
   }
 
   /**

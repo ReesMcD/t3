@@ -1,7 +1,7 @@
 {
   "name": "t3",
   "version": "1.0.0",
-  "description": "A modern puzzle cube timer",
+  "description": "A simple modern puzzle cube timer.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "electron-pug": "^2.0.0",
+    "electron-reload": "^1.4.0",
+    "electron-store": "^4.0.0",
     "scrambo": "^0.3.0",
     "timer-machine": "^1.1.0"
   }

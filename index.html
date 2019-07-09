@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>t3</title>
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/skeleton.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="one columns">
+          <h1>t<sup>3</sup></h1>
+        </div>
+        <div class="two columns">
+          <div id="puzzle-wrapper">
+            <label>Puzzle</label>
+            <select id="puzzle" name="puzzle">
+              <option value="222">2x2</option>
+              <option value="333" selected="selected">3x3</option>
+              <option value="444">4x4</option>
+              <option value="555">5x5</option>
+              <option value="666">6x6</option>
+              <option value="777">7x7</option>
+              <option value="333">3x3 OH</option>
+              <option value="clock">Clock</option>
+              <option value="minx">Megaminx</option>
+              <option value="pyram">Pyraminx</option>
+              <option value="sq1">Square 1</option>
+              <option value="skewb">Skewb</option>
+            </select>
+          </div>
+        </div>
+        <div class="nine columns">
+          <div id="scramble-wrapper">
+            <label>Scramble</label>
+            <div id="scramble"></div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div id="timer-wrapper">
+          <div id="timer">Space Bar to Start</div>
+        </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="one-half column">
+          <div id="solve-wrapper">
+            <label id="solve-header">Solves</label>
+            <button id="deleteAllSolves">Delete All Solves</button>
+            <button id="deletePuzzleSolves">Delete Puzzle Solves</button>
+            <div id="solve-container">
+              <p id="solves"></p>
+            </div>
+          </div>
+        </div>
+        <div class="one-half column">
+          <div id="stat-wrapper">
+            <label id="stat-header">Stats</label>
+            <div id="">
+              <p id="">Hello Worlds</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./renderer.js"></script>
+</html>

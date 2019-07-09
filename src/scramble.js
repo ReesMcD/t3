@@ -9,8 +9,11 @@ class Scramble {
   setScramble(puzzle) {
     // TODO: Make scrammbles different length for larger puzzles
     const scramble = this.scrambler.type(puzzle).get();
-
     this.scrambleEl.innerHTML = scramble;
+  }
+
+  getCurrentScamble() {
+    return this.scrambleEl.innerHTML;
   }
 }
 

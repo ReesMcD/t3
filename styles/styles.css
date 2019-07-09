@@ -1,0 +1,28 @@
+.container {
+  margin-top: 5rem;
+}
+
+#puzzle-wrapper {
+
+}
+
+#scramble-wrapper {
+  float: right;
+  word-wrap: break-word;
+}
+
+#timer-wrapper {
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 10px;
+}
+#timer {
+  font-size: 5rem;
+}
+
+#solve-wrapper {
+}
+#solves {
+  word-wrap: break-word;
+}
